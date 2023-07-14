@@ -5,15 +5,22 @@
 commit aefead2207ef7e2aa5dc81a34aedf0cad4c32545
  Update CHANGELOG.md
 
+
+
 2. Какому тегу соответствует коммит 85024d3?
 Команда git show 85024d3
 commit 85024d3100126de36331c6982bfaac02cdab9e76 
 (tag: v0.12.23)
 
+
+
 3. Сколько родителей у коммита b8d720? Напишите их хеши.
 Команда git show b8d720
 Это мерж коммит, у него 2 родителя
 Merge: 56cd7859e0 9ea88f22fc
+
+
+
 
 4. Перечислите хеши и комментарии всех коммитов, которые были сделаны между тегами v0.12.23 и v0.12.24.
 git log --abbrev-commit  --pretty=oneline v0.12.23^..v0.12.24
@@ -28,5 +35,111 @@ d5f9411f51 command: Fix bug when using terraform login on Windows
 dd01a35078 Update CHANGELOG.md
 225466bc3e Cleanup after v0.12.23 release
 
+
+
+
+
 5.Найдите коммит, в котором была создана функция func providerSource, её определение в коде выглядит так: func providerSource(...) (вместо троеточия перечислены аргументы).
+git log -S 'func providerSource'
+Выдает 2 коммита
+commit 5af1e6234ab6da412fb8637393c5a17a1b293663
+Author: Martin Atkins <mart@degeneration.co.uk>
+Date:   Tue Apr 21 16:28:59 2020 -0700
+
+commit 8c928e83589d90a031f811fae52a81be7153e82f
+Author: Martin Atkins <mart@degeneration.co.uk>
+Date:   Thu Apr 2 18:04:39 2020 -0700
+
+Смотрим более ранний
+ git grep --heading -n -e 'func providerSource('  8c928e83589d90a031f811fae52a81be7153e82f
+
+8c928e83589d90a031f811fae52a81be7153e82f:provider_source.go
+19:func providerSource(services *disco.Disco) getproviders.Source {
+
+Нашли: это коммит 8c928e83589d90a031f811fae52a81be7153e82f
+
+
+
+
+
+
+6. Найдите все коммиты, в которых была изменена функция globalPluginDirs
+Команда git log -S 'globalPluginDirs'
+
+commit 65c4ba736375607b6af6c035972f7f151232b6c6
+Author: Valeriy Pastushenko <i@combin.name>
+Date:   Sat May 21 19:53:24 2022 +0300
+
+commit 125eb51dc40b049b38bf2ed11c32c6f594c8ef96
+Author: Alisdair McDiarmid <alisdair@users.noreply.github.com>
+Date:   Thu May 5 10:12:00 2022 -0400
+
+commit 22c121df8631c4499d070329c9aa7f5b291494e1
+Author: Anna Winkler <3526523+annawinkler@users.noreply.github.com>
+Date:   Tue May 3 12:28:41 2022 -0600
+
+commit 7c7e5d8f0a6a50812e6e4db3016ebfd36fa5eaef
+Author: Valeriy Pastushenko <i@combin.name>
+Date:   Fri Sep 3 18:33:10 2021 +0300
+
+commit 35a058fb3ddfae9cfee0b3893822c9a95b920f4c
+Author: Martin Atkins <mart@degeneration.co.uk>
+Date:   Thu Oct 19 17:40:20 2017 -0700
+
+commit c0b17610965450a89598da491ce9b6b5cbd6393f
+Author: James Bardin <j.bardin@gmail.com>
+Date:   Mon Jun 12 15:04:40 2017 -0400
+
+commit 8364383c359a6b738a436d1b7745ccdce178df47
+Author: Martin Atkins <mart@degeneration.co.uk>
+Date:   Thu Apr 13 18:05:58 2017 -0700
+
+Было найдено 7 коммитов. В раннем коммите функция была создана, а в последующих изменялась
+c0b17610965450a89598da491ce9b6b5cbd6393f
+35a058fb3ddfae9cfee0b3893822c9a95b920f4c
+7c7e5d8f0a6a50812e6e4db3016ebfd36fa5eaef
+22c121df8631c4499d070329c9aa7f5b291494e1
+125eb51dc40b049b38bf2ed11c32c6f594c8ef96
+65c4ba736375607b6af6c035972f7f151232b6c6
+
+
+
+
+
+7. Кто автор функции synchronizedWriters?
+
+Сначала находим коммиты, где упоминается функция
+ git log -S "synchronizedWriters"
+
+commit bdfea50cc85161dea41be0fe3381fd98731ff786
+Author: James Bardin <j.bardin@gmail.com>
+Date:   Mon Nov 30 18:02:04 2020 -0500
+
+commit fd4f7eb0b935e5a838810564fd549afe710ae19a
+Author: James Bardin <j.bardin@gmail.com>
+Date:   Wed Oct 21 13:06:23 2020 -0400
+
+commit 5ac311e2a91e381e2f52234668b49ba670aa0fe5
+Author: Martin Atkins <mart@degeneration.co.uk>
+Date:   Wed May 3 16:25:41 2017 -0700
+
+
+Берем наиболее ранний коммит и смотрим файлы  в которых упоминается функция
+  git grep --break --heading -n "synchronizedWriters" 5ac311e2a91e381e2f52234668b49ba670aa0fe5
+5ac311e2a91e381e2f52234668b49ba670aa0fe5:main.go
+267:            wrapped := synchronizedWriters(stdout, stderr)
+
+5ac311e2a91e381e2f52234668b49ba670aa0fe5:synchronized_writers.go
+13:// synchronizedWriters takes a set of writers and returns wrappers that ensure
+15:func synchronizedWriters(targets ...io.Writer) []io.Writer {
+
+И смотрим автора строк
+git checkout 5ac311e2a91e381e2f52234668b49ba670aa0fe5
+ git blame -C -L 13,15 ./synchronized_writers.go
+ git blame -C -L 267 ./main.go
+
+5ac311e2a91 (Martin Atkins 2017-05-03 16:25:41 -0700 15) func synchronizedWriters(targets ...io.Writer) []io                                                    .Writer {
+
+Автор функции: Martin Atkins 
+
 
