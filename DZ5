@@ -64,43 +64,31 @@ Date:   Thu Apr 2 18:04:39 2020 -0700
 
 
 6. Найдите все коммиты, в которых была изменена функция globalPluginDirs
-Команда git log -S 'globalPluginDirs'
+Ищем в каких файлах есть фунция 
+ git grep -n --break --heading 'globalPluginDirs'
 
-commit 65c4ba736375607b6af6c035972f7f151232b6c6
-Author: Valeriy Pastushenko <i@combin.name>
-Date:   Sat May 21 19:53:24 2022 +0300
+commands.go
+92:             GlobalPluginDirs: globalPluginDirs(),
+450:    helperPlugins := pluginDiscovery.FindPlugins("credentials", globalPluginDirs())
 
-commit 125eb51dc40b049b38bf2ed11c32c6f594c8ef96
-Author: Alisdair McDiarmid <alisdair@users.noreply.github.com>
-Date:   Thu May 5 10:12:00 2022 -0400
+internal/command/cliconfig/config_unix.go
+37:             // FIXME: homeDir gets called from globalPluginDirs during init, before
 
-commit 22c121df8631c4499d070329c9aa7f5b291494e1
-Author: Anna Winkler <3526523+annawinkler@users.noreply.github.com>
-Date:   Tue May 3 12:28:41 2022 -0600
+plugins.go
+15:// globalPluginDirs returns directories that should be searched for
+21:func globalPluginDirs() []string {
 
-commit 7c7e5d8f0a6a50812e6e4db3016ebfd36fa5eaef
-Author: Valeriy Pastushenko <i@combin.name>
-Date:   Fri Sep 3 18:33:10 2021 +0300
+Потом ищем коммиты по файлу plugins.go,  в котором создавалась и зменялась функция
 
-commit 35a058fb3ddfae9cfee0b3893822c9a95b920f4c
-Author: Martin Atkins <mart@degeneration.co.uk>
-Date:   Thu Oct 19 17:40:20 2017 -0700
+ git log -L:'globalPluginDirs':plugins.go
 
-commit c0b17610965450a89598da491ce9b6b5cbd6393f
-Author: James Bardin <j.bardin@gmail.com>
-Date:   Mon Jun 12 15:04:40 2017 -0400
+В commit 8364383c359a6b738a436d1b7745ccdce178df47 она создана
+Изменялась:
 
-commit 8364383c359a6b738a436d1b7745ccdce178df47
-Author: Martin Atkins <mart@degeneration.co.uk>
-Date:   Thu Apr 13 18:05:58 2017 -0700
-
-Было найдено 7 коммитов. В раннем коммите функция была создана, а в последующих изменялась
-c0b17610965450a89598da491ce9b6b5cbd6393f
-35a058fb3ddfae9cfee0b3893822c9a95b920f4c
-7c7e5d8f0a6a50812e6e4db3016ebfd36fa5eaef
-22c121df8631c4499d070329c9aa7f5b291494e1
-125eb51dc40b049b38bf2ed11c32c6f594c8ef96
-65c4ba736375607b6af6c035972f7f151232b6c6
+66ebff90cdfaa6938f26f908c7ebad8d547fea17
+41ab0aef7a0fe030e84018973a64135b11abcd70
+52dbf94834cb970b510f2fba853a5b49ad9b1a46
+78b12205587fe839f10d946ea3fdc06719decb05
 
 
 
