@@ -37,6 +37,24 @@
 Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.
 
 ```
+palnikov@myserv:~$ vboxmanage -v
+6.1.38_Ubuntur153438
+palnikov@myserv:~$ vagrant -v
+Vagrant 2.2.19
+
+palnikov@myserv:~$ terraform -v
+Terraform v1.5.3
+on linux_amd64
+
+
+palnikov@myserv:~$ ansible --version
+ansible 2.10.8
+  config file = /home/palnikov/ansible.cfg
+  configured module search path = ['/home/palnikov/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.10.6 (main, May 29 2023, 11:10:38) [GCC 11.3.0]
+
 
 ```
 
