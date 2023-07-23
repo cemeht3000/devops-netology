@@ -63,5 +63,34 @@ TASK [Add the current user to docker group] ************************************
 ok: [server1.netology]
 
 PLAY RECAP *********************************************************************
-server1.netology           : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+server1.netology           : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+palnikov@myserv:~$ vagrant ssh
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-144-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sun 23 Jul 2023 02:03:42 PM UTC
+
+  System load:  0.22               Users logged in:          0
+  Usage of /:   13.5% of 30.34GB   IPv4 address for docker0: 172.17.0.1
+  Memory usage: 22%                IPv4 address for eth0:    10.0.2.15
+  Swap usage:   0%                 IPv4 address for eth1:    192.168.56.11
+  Processes:    139
+
+ * Introducing Expanded Security Maintenance for Applications.
+   Receive updates to over 25,000 software packages with your
+   Ubuntu Pro subscription. Free for personal use.
+
+     https://ubuntu.com/pro
+
+
+This system is built by the Bento project by Chef Software
+More information can be found at https://github.com/chef/bento
+Last login: Sun Jul 23 13:40:34 2023 from 10.0.2.2
+
+vagrant@server1:~$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
