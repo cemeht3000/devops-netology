@@ -140,4 +140,5 @@ host file
 Соберите Docker образ с Ansible, загрузите на Docker Hub и пришлите ссылку вместе с остальными ответами к задачам.
 
 ### Ответ
-- Воспроизвёл задание из лекции, ссылка на собранный Docker образ с Ansible [https://hub.docker.com/repository/docker/danilabar/ansible](https://hub.docker.com/repository/docker/danilabar/ansible)
+Образ ansiblev01
+https://hub.docker.com/r/cemeht/devops-netology/tags
