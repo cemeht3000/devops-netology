@@ -21,14 +21,7 @@ Hey, Netology
 
 ### Ответ
 
-- Скачал себе образ nginx `docker pull nginx:latest`
-- Подготовил файлы:
-  - [Dockerfile](https://github.com/danilabar/devops-netology-sysadm/blob/main/05-virt-03-docker/nginx/Dockerfile)
-  - [index.html](https://github.com/danilabar/devops-netology-sysadm/blob/main/05-virt-03-docker/nginx/index.html)
-- Собрал новый образ `docker build -t danilabar/nginx:1.21.6.4 .`
-- Контейнер запускается, страница открывается `docker run -d -p 80:80 danilabar/nginx:1.21.6.4`
-- Выгрузил образ в публичный реестр `docker push danilabar/nginx:1.21.6.4`
-- Образ доступен в репозитории [https://hub.docker.com/repository/docker/danilabar/nginx](https://hub.docker.com/repository/docker/danilabar/nginx)
+Образ доступен в репозитории docker https://hub.docker.com/r/cemeht/devops-netology/tags
 
 ## Задача 2
 
