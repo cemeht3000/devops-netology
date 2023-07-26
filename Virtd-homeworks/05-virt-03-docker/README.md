@@ -21,7 +21,7 @@ Hey, Netology
 
 ### Ответ
 
-Образ доступен в репозитории docker https://hub.docker.com/r/cemeht/devops-netology/tags
+https://hub.docker.com/r/cemeht/devops-netology/tags
 
 ## Задача 2
 
@@ -91,40 +91,47 @@ Hey, Netology
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
 
 ### Ответ
+- Запустите первый контейнер из образа ***centos*** c любым тэгом в фоновом режиме, подключив папку ```/data``` из текущей рабочей директории на хостовой машине в ```/data``` контейнера;
+```
+palnikov@myserv:~$ docker run --rm -itd --name centos -v /data:/data centos
+Unable to find image 'centos:latest' locally
+latest: Pulling from library/centos
+a1d0c7532777: Pull complete 
+Digest: sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177
+Status: Downloaded newer image for centos:latest
+43c4856a6d74822eb321ba1c453cd83b89e6b68f5dc0b06b5df16807db8d3e17
+```
+- Запустите второй контейнер из образа ***debian*** в фоновом режиме, подключив папку ```/data``` из текущей рабочей директории на хостовой машине в ```/data``` контейнера;  
+```  
+palnikov@myserv:~$ docker run --rm -itd --name debian -v /data:/data debian
+Unable to find image 'debian:latest' locally
+latest: Pulling from library/debian
+d52e4f012db1: Pull complete 
+Digest: sha256:3d868b5eb908155f3784317b3dda2941df87bbbbaa4608f84881de66d9bb297b
+Status: Downloaded newer image for debian:latest
+d219f0b0086574317902d0e7e763128df5fc9cc31719491b5992d1985d8f52ea
+```
+- Подключитесь к первому контейнеру с помощью ```docker exec``` и создайте текстовый файл любого содержания в ```/data```;
+```
+palnikov@myserv:~$ docker exec  -it centos /bin/bash
+[root@43c4856a6d74 /]# echo 'centos file' > /data/centos.txt
+```
+- Добавьте еще один файл в папку ```/data``` на хостовой машине;
+```
+root@myserv:/# echo 'host file' > /data/host.txt
+```
+- Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
+```
+root@myserv:/# docker exec -it debian /bin/bash 
+root@d219f0b00865:/# ls -l /data
+total 8
+-rw-r--r-- 1 root root 12 Jul 26 21:33 centos.txt
+-rw-r--r-- 1 root root 10 Jul 26 21:45 host.txt
+root@d219f0b00865:/# cat /data/*
+centos file
+host file
+```
 
-- Контейнер 1 `docker run -dit -v /data:/data centos`
-- Контейнер 2 `docker run -dit -v /data:/data debian`
-  - Оба контейнера запущены
-  ```bash
-  root@ubuntuvm:~# docker ps
-  CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES
-  a4fe5d5868ec   debian    "bash"        6 seconds ago    Up 5 seconds              charming_hamilton
-  1bc950468c26   centos    "/bin/bash"   13 seconds ago   Up 11 seconds             modest_snyder
-  ```
-- Подключился к контейнеру 1 и создал файл
-  ```bash
-  root@ubuntuvm:~# docker exec -it 1bc950468c26 /bin/bash
-  [root@1bc950468c26 /]# echo 'This centos container' > /data/centos.txt
-  ```
-- Создал файл на хостовой машине
-  ```bash
-  root@ubuntuvm:~# echo 'This host machine' > /data/host.txt
-  ```
-- Подключился к контейнеру 2 и показал листинг
-  ```bash
-  root@ubuntuvm:~# docker exec -it a4fe5d5868ec /bin/bash
-  
-  root@a4fe5d5868ec:/# ls -lha /data/
-  total 16K
-  drwxr-xr-x 2 root root 4.0K Jan 27 06:25 .
-  drwxr-xr-x 1 root root 4.0K Jan 27 06:14 ..
-  -rw-r--r-- 1 root root   22 Jan 27 06:20 centos.txt
-  -rw-r--r-- 1 root root   18 Jan 27 06:25 host.txt
-  
-  root@a4fe5d5868ec:/# cat /data/*
-  This centos container
-  This host machine
-  ```
 
 ## Задача 4 (*)
 
