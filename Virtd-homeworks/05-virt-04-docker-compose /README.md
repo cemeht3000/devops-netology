@@ -5,6 +5,7 @@
 Чтобы получить зачёт, вам нужно предоставить скриншот страницы с созданным образом из личного кабинета YandexCloud.
 
 ### Решение
+![image](https://github.com/cemeht3000/devops-netology/assets/137440614/4075f6a7-58c0-4809-81bb-3db8b835b77f)
 
 
 
@@ -20,7 +21,7 @@
 
 ### Решение
 
-2.1
+**2.1**
 ![image](https://github.com/cemeht3000/devops-netology/assets/137440614/aa7a9393-1269-4221-a657-96f710a4c21d)
 
 
