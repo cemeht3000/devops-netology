@@ -33,7 +33,10 @@ VM создана:
 2. Заменил все хардкод-значения для ресурсов **yandex_compute_image** и **yandex_compute_instance** на отдельные переменные.
 ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/0e1064d5-7744-4471-8bbd-dbd9df88ce4e)
 
+3. Объявите нужные переменные в файле variables.tf, обязательно указывайте тип переменной. Заполните их default прежними значениями из main.tf.
+   
 ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/331c6925-bbd1-4027-ae8d-1c4a83d9b255)
 
 4. Проверьте terraform plan. Изменений быть не должно.
+   
 ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/7871ed81-c1f4-40f7-aaa0-56279e606d05)
