@@ -47,7 +47,17 @@ VM создана:
 Создал в корне проекта файл 'vms_platform.tf' . Перенес в него все переменные первой ВМ. Скопировал блок ресурса и создал с его помощью вторую ВМ в файле main.tf: "netology-develop-platform-db" , cores = 2, memory = 2, core_fraction = 20. Объявил её переменные с префиксом vm_db_ в том же файле ('vms_platform.tf').
 Применил изменения.
 
-![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/11db5cf2-6012-4220-bf95-08a5a93ec5e2)
-![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/fb232bf0-5b10-4f4d-8f94-1e289098d38d)
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/89ffe8bc-1a71-48fc-9d74-8732bde49402)
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/25904269-916f-489b-b4d9-093423be7a01)
+
+
+## Задание 4
+
+Объявил в файле outputs.tf output типа map, содержащий { instance_name = external_ip } для каждой из ВМ.
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/1291f65c-2b08-4b38-a5b3-9259abbeccf6)
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/22cb7384-8286-4663-8174-66af0cb389f2)
 
 
