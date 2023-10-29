@@ -1,16 +1,19 @@
 ###cloud vars
 variable "token" {
   type        = string
+  sensitive = true
   description = "OAuth-token; https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token"
 }
 
 variable "cloud_id" {
   type        = string
+  sensitive = true
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/cloud/get-id"
 }
 
 variable "folder_id" {
   type        = string
+  sensitive = true
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
 }
 
@@ -40,44 +43,3 @@ variable "vms_ssh_root_key" {
   description = "ssh-keygen -t ed25519"
 }
 
-variable "vm_web_family" {
-  type        = string
-  default     = "ubuntu-2004-lts"
-  description = "vm version"
-}
-
-variable "vm_web_name" {
-  type        = string
-  default     = "netology-develop-platform-web"
-  description = "instance name"
-}
-
-variable "vm_web_platform_id" {
-  type        = string
-  default     = "standard-v1"
-  description = "platform id"
-}
-
-variable "vm_web_cores" {
-  type        = number
-  default     = 2
-  description = "numbers vCPU"
-}
-
-variable "vm_web_memory" {
-  type        = number
-  default     = 1
-  description = "VM memory Gb"
-}
-
-variable "vm_web_core_fraction" {
-  type        = number
-  default     = 5
-  description = "core fraction"
-}
-
-variable "vm_web_" {
-  type        = number
-  default     = 2
-  description = "numbers vCPU"
-}
