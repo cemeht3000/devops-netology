@@ -40,3 +40,14 @@ VM создана:
 4. Проверьте terraform plan. Изменений быть не должно.
    
 ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/7871ed81-c1f4-40f7-aaa0-56279e606d05)
+
+
+## Задание 3
+
+Создал в корне проекта файл 'vms_platform.tf' . Перенес в него все переменные первой ВМ. Скопировал блок ресурса и создал с его помощью вторую ВМ в файле main.tf: "netology-develop-platform-db" , cores = 2, memory = 2, core_fraction = 20. Объявил её переменные с префиксом vm_db_ в том же файле ('vms_platform.tf').
+Применил изменения.
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/11db5cf2-6012-4220-bf95-08a5a93ec5e2)
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/fb232bf0-5b10-4f4d-8f94-1e289098d38d)
+
+
