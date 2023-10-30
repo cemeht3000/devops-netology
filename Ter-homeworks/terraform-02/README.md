@@ -70,4 +70,35 @@ VM создана:
 ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/1a4c3640-4fe8-46a1-821d-56f11d3e3de4)
 ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/6ded0cf0-ec7f-4dc9-86d7-1d694c0f0324)
 
+## Задание 6
+
+1.Вместо использования трёх переменных ".._cores",".._memory",".._core_fraction" в блоке resources {...}, объединил их в переменные типа map с именами "vm_web_resources" и "vm_db_resources". В качестве продвинутой практики попробовал создать одну map-переменную vms_resources и уже внутри неё конфиги обеих ВМ — вложенный map.
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/8171721d-d4d5-44d8-a18d-25eab7c158b8)
+
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/9add7bc5-2233-44f0-8f18-614f9f0fe41b)
+
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/8700f88c-0e62-44bd-a9bf-a1d02bb09e9e)
+
+
+2. Также поступил с блоком metadata {serial-port-enable, ssh-keys}, эта переменная должна быть общая для всех ВМ.
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/10455294-6fab-4bfa-83a3-85d02da41da1)
+
+Заменил в блоке resource на переменную metadata 
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/14cd09a2-1b27-48c4-958a-cde5f3285d61)
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/8b426972-b01b-4d34-8a2c-608602839b5f)
+
+3. Нашел и удалил все более не используемые переменные проекта.
+4. Проверил terraform plan. Изменений не было.
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/8d00a6a9-6905-40fd-9bff-524495ea3fc9)
+
+
+## Задание 7*
+
+
 
