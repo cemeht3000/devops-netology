@@ -10,18 +10,6 @@ variable "vm_db_family" {
 }
 
 
-variable "vm_web_name" {
-  type        = string
-  default     = "netology-develop-platform-web"
-  description = "instance name"
-}
-variable "vm_db_name" {
-  type        = string
-  default     = "netology-develop-platform-db"
-  description = "instance db name"
-}
-
-
 variable "vm_web_platform_id" {
   type        = string
   default     = "standard-v1"
@@ -33,35 +21,26 @@ variable "vm_db_platform_id" {
   description = "platform db id"
 }
 
-variable "vm_web_cores" {
-  type        = number
-  default     = 2
-  description = "numbers vCPU"
-}
-variable "vm_db_cores" {
-  type        = number
-  default     = 2
-  description = "numbers vCPU db"
-}
-
-variable "vm_web_memory" {
-  type        = number
-  default     = 1
-  description = "VM memory Gb"
-}
-variable "vm_db_memory" {
-  type        = number
-  default     = 2
-  description = "VM memory Gb db"
+variable "vms_resources" {
+  type       = map(map(number))
+  default = {
+    vm_web_resources = {
+      cores          = 2
+      memory         = 1
+      core_fraction  = 5
+    }
+    vm_db_resources  = {
+      cores          = 2
+      memory         = 2
+      core_fraction  = 20
+    }
+  }
 }
 
-variable "vm_web_core_fraction" {
-  type        = number
-  default     = 5
-  description = "core fraction"
-}
-variable "vm_db_core_fraction" {
-  type        = number
-  default     = 20
-  description = "core fraction db"
-}
+variable "value_metadata" {
+  type       = map(string)
+  default = {
+    serial-port-enable = "1"
+    ssh-keys           = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAXgjaCOcXPQjb4atnwMLj/cb8rxZnSBFPqPUyBea1zo palnikov@palnikov-desktop"
+    }
+  }
