@@ -60,4 +60,14 @@ VM создана:
 
 ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/22cb7384-8286-4663-8174-66af0cb389f2)
 
+## Задание 5
+
+В файле locals.tf описал в одном local-блоке имя каждой ВМ, используйте интерполяцию ${..} с несколькими переменными по примеру из лекции.
+Заменил переменные с именами ВМ из файла variables.tf на созданные local-переменные.
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/69206c54-c21d-4d80-bbb7-7bd338aa5262)
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/1a4c3640-4fe8-46a1-821d-56f11d3e3de4)
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/6ded0cf0-ec7f-4dc9-86d7-1d694c0f0324)
+
 
