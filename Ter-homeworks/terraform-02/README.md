@@ -99,6 +99,23 @@ VM создана:
 
 
 ## Задание 7*
+1. Напишите, какой командой можно отобразить второй элемент списка test_list.
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/6e3e4c6d-7fa0-4446-805f-5900fb5d77f1)
+
+2.Найдите длину списка test_list с помощью функции length(<имя переменной>).
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/c5f06c70-1a6d-438e-97af-3661011d568f)
+
+3.Напишите, какой командой можно отобразить значение ключа admin из map test_map.
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/f7a0407d-bc2b-44e0-a0d6-2c56728e60ee)
+
+4. Напишите interpolation-выражение, результатом которого будет: "John is admin for production server based on OS ubuntu-20-04 with X vcpu, Y ram and Z virtual disks", используйте данные из переменных test_list, test_map, servers и функцию length() для подстановки значений.
+
+> {a = "${local.test_map.admin} is admin for ${local.test_list[2]} server based on OS ${local.servers[local.test_list[2]]["image"]} with ${local.servers[local.test_list[2]]["cpu"]} vcpu, ${local.servers[local.test_list[2]]["ram"]} ram and ${length(local.servers[local.test_list[2]]["disks"])} virtual disks"}
+
+![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/8d559b62-4658-48ea-89c5-884196127a68)
 
 
 
