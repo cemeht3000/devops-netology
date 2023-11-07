@@ -38,4 +38,31 @@
 
    ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/654ece2e-e2ba-46be-a438-d83a08ddd744)
 
+
+### Задание 3
+
+1. Создал 3 одинаковых виртуальных диска размером 1 Гб с помощью ресурса yandex_compute_disk и мета-аргумента count в файле disk_vm.tf .
+
+   ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/789d0e2b-b71e-468b-83b2-deba33e276d8)
+   
+   ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/a95d9eda-c1f0-47c6-8f6f-92aaf3d14a28)
+   
+
+3. Создал одиночную ВМ c именем "storage" . Использовал блок dynamic secondary_disk{..} и мета-аргумент for_each для подключения созданных дополнительных дисков.
+
+   ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/a60b534d-65b6-4005-a525-8d5019c229f4)
+
+   ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/2a0b6da1-2fee-470d-9453-83187ca40122)
+
+Результат:
+
+   ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/67a61abd-37b7-48ec-9af4-60d8003d84fc)
+
+   ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/c24a5ead-436d-498a-bacc-19e8444d2a86)
+
+   ![изображение](https://github.com/cemeht3000/devops-netology/assets/137440614/f5593f45-9c5c-4a8e-b78f-d59c4f27b2ab)
+
+
+
+
    
