@@ -30,6 +30,6 @@ resource "yandex_compute_instance" "web" {
     ]
   }
  metadata = {
-    ssh-keys = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAXgjaCOcXPQjb4atnwMLj/cb8rxZnSBFPqPUyBea1zo palnikov@palnikov-desktop"
+    ssh-keys = "ubuntu:${local.ssh-keys}"
   }
 }
