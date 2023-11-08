@@ -3,22 +3,22 @@ data "yandex_compute_image" "web" {
 }
 
 resource "yandex_compute_instance" "web" {
-  name        = "web-${count.index+1}"
-  platform_id = "standard-v1"
+  name        = "${var.yandex_compute_instance_web.vm_name}-${count.index+1}"
+  platform_id = var.yandex_compute_instance_web.platform_id
   
-  count = 2
+  count = var.yandex_compute_instance_web.count_vms
 
   resources {
-    cores  = 2
-    memory = 1
-    core_fraction = 5
+    cores         = var.yandex_compute_instance_web.cores
+    memory        = var.yandex_compute_instance_web.memory
+    core_fraction = var.yandex_compute_instance_web.core_fraction
   }
 
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.web.image_id
-      type = "network-hdd"
-      size = 5
+      type = var.boot_disk_storage.type
+      size = var.boot_disk_storage.size
     }   
   }
 
